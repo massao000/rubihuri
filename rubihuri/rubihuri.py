@@ -7,7 +7,6 @@ class Rubihuri:
     """日本語テキストの読み方と発音を変換するクラス"""
     
     # TODO:空白がある場合、空白を削除する
-    # TODO:{単語<読み>}ではなくルビふり（波カッコをなくすバージョン）に使えるように
     def __init__(self, dic_path: str = '', left_brace="{", right_brace="}", left_delimiter="<", right_delimiter=">"):
         """
         Args:
@@ -34,6 +33,17 @@ class Rubihuri:
         parsed = self.tagger.parse(text)
         return [re.split('[,\t]', p) for p in parsed.split("\n")][:-2]
 
+    def _needs_ruby(self, text: str) -> bool:
+        """ルビが必要かどうかを判定
+        
+        以下の文字を含む場合にルビが必要と判定:
+        - 漢字 (CJK統合漢字)
+        - 数字 (半角・全角)
+        - アルファベット (半角・全角)
+        """
+        return bool(re.search(r'[0-9０-９a-zA-Zａ-ｚＡ-Ｚ\u4e00-\u9fff]', text))
+
+
     def _format_reading(self, original: str, reading: str) -> str:
         """漢字と読み/発音を指定フォーマットで結合"""
         left_brace, right_brace = self.braces
@@ -53,7 +63,7 @@ class Rubihuri:
         result = []
         
         for parsed in parseds:
-            if re.search(r"[0-9\u4e00-\u9fff]", parsed[0]):
+            if self._needs_ruby(parsed[0]):
                 reading = parsed[reading_index]
                 if to_hiragana:
                     reading = jaconv.kata2hira(reading)

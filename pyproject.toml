@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rubihuri"
-version = "0.1.0"
-description = "A library for adding readings and pronunciations to Kanji"
+version = "0.1.1"
+description = "A library for adding readings and pronunciations to Kanji, numbers and alphabets"
 authors = [
     { name = "massao000"}
 ]

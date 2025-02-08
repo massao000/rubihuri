@@ -3,21 +3,19 @@ import re
 import jaconv
 from typing import List
 
-from icecream import ic
-
 class Rubihuri:
     """日本語テキストの読み方と発音を変換するクラス"""
     
-    # TODO:{単語<読み>} の形式の顔委の部分を指定できるようにする
     # TODO:空白がある場合、空白を削除する
+    # TODO:{単語<読み>}ではなくルビふり（波カッコをなくすバージョン）に使えるように
     def __init__(self, dic_path: str = '', left_brace="{", right_brace="}", left_delimiter="<", right_delimiter=">"):
         """
         Args:
             dic_path: MeCab辞書のパス
             left_brace: 漢字を囲む左括弧
             right_brace: 漢字を囲む右括弧
-            left_delimiter: 読みを囲む左記号
-            right_delimiter: 読みを囲む右記号
+            left_delimiter: 読み/発音を囲む左記号
+            right_delimiter: 読み/発音を囲む右記号
         """
         self.braces = (left_brace, right_brace)
         self.delimiters = (left_delimiter, right_delimiter)

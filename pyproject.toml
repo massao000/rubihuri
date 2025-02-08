@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rubihuri"
+version = "0.1.0"
+description = "A library for adding readings and pronunciations to Kanji"
+authors = [
+    { name = "massao000"}
+]
+dependencies = [
+    "mecab-python3",
+    "jaconv",
+]
+readme = "README.md"
+license = { text = "MIT" }
+keywords = [
+    "ruby",
+    "rubihuri",
+    "furigana",
+    "kanji",
+    "reading",
+    "pronunciation",
+    "converter",
+    "Japanese",
+    "reading-helper"
+]
+
+[project.urls]
+Homepage = "https://github.com/massao000/rubihuri"
+Repository = "https://github.com/massao000/rubihuri"
+
+[tool.setuptools]
+packages = ["rubihuri"]

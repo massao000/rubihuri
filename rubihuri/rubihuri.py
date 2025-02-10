@@ -65,26 +65,27 @@ class Rubihuri:
         for parsed in parseds:
             if self._needs_ruby(parsed[0]):
                 reading = parsed[reading_index]
+                # TODO:読みや発音が「*」の場合の処理を入れる
                 if to_hiragana:
                     reading = jaconv.kata2hira(reading)
-                result.append(self._format_reading(parsed[-3], reading))
+                result.append(self._format_reading(parsed[-0], reading))
             else:
                 result.append(parsed[0])
 
         return "".join(result)
     
     def yomi_hiragana(self, sentence: str) -> str:
-        """漢字の読みをひらがなで表示"""
+        """漢字・数字・ローマ字の読みをひらがなで表示"""
         return self._convert_text(sentence, -2, to_hiragana=True)
 
     def yomi_katakana(self, sentence: str) -> str:
-        """漢字の読みをカタカナで表示"""
+        """漢字・数字・ローマ字の読みをカタカナで表示"""
         return self._convert_text(sentence, -2, to_hiragana=False)
 
     def hatuon_hiragana(self, sentence: str) -> str:
-        """漢字の発音をひらがなで表示"""
+        """漢字・数字・ローマ字の発音をひらがなで表示"""
         return self._convert_text(sentence, -1, to_hiragana=True)
 
     def hatuon_katakana(self, sentence: str) -> str:
-        """漢字の発音をカタカナで表示"""
+        """漢字・数字・ローマ字の発音をカタカナで表示"""
         return self._convert_text(sentence, -1, to_hiragana=False)

@@ -30,7 +30,7 @@ $ ./bin/install-mecab-ipadic-neologd -n -y
 $ echo `mecab-config --dicdir`"/mecab-ipadic-neologd"
 ```
 
-[公式キュメント](https://github.com/neologd/mecab-ipadic-neologd/blob/master/README.ja.md#%E4%BE%8B-%E5%8B%95%E4%BD%9C%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB)
+[mecab-ipadic-NEologd 公式キュメント](https://github.com/neologd/mecab-ipadic-neologd/blob/master/README.ja.md#%E4%BE%8B-%E5%8B%95%E4%BD%9C%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB)
 
 ### Windowsの場合
 

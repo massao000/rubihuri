@@ -121,19 +121,23 @@ text = "今日の天気は晴れのち雨でした。"
 
 # ひらがなで読みを付与
 result = rubihuri.yomi_hiragana(text)
-print(result)  # {今日の天気<きょうのてんき>}は{晴れ<はれ>}のち{雨<あめ>}でした
+print(result)
+# {今日の天気<きょうのてんき>}は{晴れ<はれ>}のち{雨<あめ>}でした
 
 # カタカナで読みを付与
 result = rubihuri.yomi_katakana(text)
-print(result)  # {今日の天気<キョウノテンキ>}は{晴れ<ハレ>}のち{雨<アメ>}でした
+print(result)
+# {今日の天気<キョウノテンキ>}は{晴れ<ハレ>}のち{雨<アメ>}でした
 
 # ひらがなで発音を付与
 result = rubihuri.hatuon_hiragana(text)
-print(result)  # {今日の天気<きょーのてんき>}は{晴れ<はれ>}のち{雨<あめ>}でした
+print(result)
+# {今日の天気<きょーのてんき>}は{晴れ<はれ>}のち{雨<あめ>}でした
 
 # カタカナで発音を付与
 result = rubihuri.hatuon_katakana(text)
-print(result)  # {今日の天気<キョーノテンキ>}は{晴れ<ハレ>}のち{雨<アメ>}でした
+print(result)
+# {今日の天気<キョーノテンキ>}は{晴れ<ハレ>}のち{雨<アメ>}でした
 ```
 
 ### カスタム設定
@@ -151,7 +155,24 @@ rubihuri1 = Rubihuri(
 
 text = "今日の天気は晴れのち雨でした。"
 result = rubihuri1.yomi_hiragana(text)
-print(result)  # 今日の天気(きょうのてんき)は晴れ(はれ)のち雨(あめ)でした。
+print(result)
+# 今日の天気(きょうのてんき)は晴れ(はれ)のち雨(あめ)でした。
+```
+
+char_typeを指定することで文字種の設定 ("half"=半角のみ or "both"=半角・全角)することができます。
+デフォルトは both です。
+```py
+from rubihuri import Rubihuri
+
+tagger = Rubihuri(
+    dic_path="path/to/mecab-ipadic-neologd",  # 辞書パス
+    char_type="half"
+)
+
+text = "ＰＣ２台とPC1台"
+result = rubihuri1.yomi_hiragana(text)
+print(result)
+# ＰＣ２{台<だい>}と{P<ぴー>}{C1<しーわん>}{台<だい>}
 ```
 
 ## ライセンス
